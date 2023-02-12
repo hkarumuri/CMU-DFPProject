@@ -1,0 +1,11 @@
+mood,list_of_food_items
+stress,"['chocolate', 'ice cream', 'pizza', 'chip', 'french fries', 'popcorn', 'cooky', 'pretzel', 'mac and cheese', 'pasta', 'soup', 'cake', 'candy', 'macaroni and cheese', 'frozen yogurt', 'fast food', 'and pasta', 'saltfish', 'candy and kit kat', 'ice crea', 'chilli', 'pot pie', 'mac-n-cheese', 'brownie', 'potato chips', 'chex mix', 'peanut butter sandwich', 'pretzals', 'garlic bread', 'dip', 'fry', 'burrito', 'slim jims', 'and mashed potatoes', 'fruit', 'and ice cream', 'carrot', 'plantain chips', 'almond', 'chicken noodle soup', 'french fires', 'stuffed peppers', 'hamburger', 'soda', 'chocolate brownie', 'chicken tikka masala and butter naan', 'salty snacks', 'toast', 'mac in cheese', 'mozzarella sticks', 'chocolate bar', 'potato chips and protein bars', 'chinese']"
+bored,"['chip', 'ice cream', 'cooky', 'pizza', 'chocolate', 'hot chocolate', 'beef jerky', 'dip', 'fry', 'chicken wings', 'mac and cheese', 'french fries', 'broccoli', 'spaghetti squash', 'quinoa', 'and grilled chicken', 'watermelon', 'grape', 'pasta']"
+depression,"['burger', 'chip', 'cooky', 'soup', 'pasta', 'cake']"
+sad,"['ice cream', 'pizza', 'chip', 'cheeseburger', 'french fries', 'fry', 'cereal', 'cooky', 'chicken wings', 'pasta', 'mac and cheese', 'mac & cheese', 'frosted brownies', 'chicken nuggs', 'watermelon', 'grape']"
+hunger,"['mac and cheese', 'burger', 'ice cream', ""grandma's chinese"", 'peruvian food from back home', 'and sushi', 'fried chicken', 'cornbread', 'pizza cookies steak', 'cooky', 'chicken noodle soup', 'doritos', 'indian and korean food']"
+laziness,"['candy', 'chinese', 'mcdonalds', 'ice cream', 'chip']"
+lazy,['burger']
+weather,"['chocolate', 'pasta', 'soup', 'chip', 'popcorn', 'cooky', 'mac-n-cheese', 'brownie', 'french fries']"
+happiness,"['pizza', 'ice cream', 'cooky', 'burger', 'fast food', 'sub', 'chex-mix', 'wegmans cookies', 'cheez-its', 'nutella', 'coffee', 'fruit', 'chicken noodle soup', 'cake', 'pop', 'and milkshakes', 'chocolate', 'indian and korean food', 'chip', 'rice', 'chicken curry', 'mac n cheese', 'lasagna']"
+tv,"['dark chocolate', 'terra chips', ""reese's cups(dark chocolate)"", 'and bread/crackers with cottage cheese']"
