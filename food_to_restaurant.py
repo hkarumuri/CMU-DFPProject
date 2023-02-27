@@ -3,6 +3,7 @@ import urllib
 import pandas as pd
 from requests_html import HTML
 from requests_html import HTMLSession
+import pprint
 
 def get_source(url):
     try:
@@ -47,12 +48,18 @@ def google_search(query):
     response = get_results(query)
     return parse_results(response)
 
-# food_name = "mac and cheese"
+# food_name = "mac and cheese"pi
 # links = scrape_google(food_name + " near me")
 # print(links)
 
-food_name = "pizza"
-results = google_search(food_name + " near me")
-print("All results:", results)
-print("First result:", results[0])
-print("Title of first result:", results[0]["title"])
+
+if __name__ == "__main__":
+    pp = pprint.PrettyPrinter(indent=4)
+
+    food_name = input("What food do you want to search nearby?\n")
+    #food_name = "cookies"
+    results = google_search(food_name + " near me")
+    #print("All results:", results)
+    #print("First result:", results[0])
+    pp.pprint(results[0])
+    #print("Title of first result:", results[0]["title"])
