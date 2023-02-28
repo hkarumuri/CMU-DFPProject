@@ -56,9 +56,9 @@ if __name__ == "__main__":
     pp = pprint.PrettyPrinter(indent=4)
 
     food_name = input("What food do you want to search nearby?\n")
-    #food_name = "cookies"
+    # #food_name = "cookies"
     results = google_search(food_name + " near me")
-    #print("All results:", results)
-    #print("First result:", results[0])
+    # #print("All results:", results)
+    # #print("First result:", results[0])
     pp.pprint(results[0])
-    #print("Title of first result:", results[0]["title"])
+    print("Title of first result:", results[0]["title"])
