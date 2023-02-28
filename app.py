@@ -57,31 +57,37 @@ foods_tab, recipes_tab, restaurants_tab = st.tabs(["Food", "Recipe", "Restaurant
 # mood_text will be later used as an user input to search!
 food_item = "pizza"
 
-
 # Sample code that displays main image of the website if there is any
 # Set the URL of the webpage you want to scrape
 url = "https://www.icecream.com/"
 
 # Send a GET request to the webpage and get the HTML content
-response = requests.get(url)
-html_content = response.content
+def get_main_img(url):
+    response = requests.get(url)
+    html_content = response.content
 
-# Parse the HTML content using BeautifulSoup
-soup = BeautifulSoup(html_content, 'html.parser')
+    # Parse the HTML content using BeautifulSoup
+    soup = BeautifulSoup(html_content, 'html.parser')
 
-# Find the first image on the webpage and display it in Streamlit
-main_image = soup.find('meta', property='og:image')
-if main_image is not None:
-    src = main_image['content']
-    if src.startswith('http'):
-        response = requests.get(src)
-        img = Image.open(BytesIO(response.content))
-        st.image(img, caption='Website Image')
+    # Find the first image on the webpage and display it in Streamlit
+    main_image = soup.find('meta', property='og:image')
+    if main_image is not None:
+        src = main_image['content']
+        if src.startswith('http'):
+            response = requests.get(src)
+            img = Image.open(BytesIO(response.content))
+            return img
+            # st.image(img, caption='Website Image')
 
+with foods_tab:
+    st.image(get_main_img(url), width=200, caption=url)
+    new_url = "https://www.aheadofthyme.com/40-best-pasta-recipes/"
+    st.image(get_main_img(new_url), width=200, caption=new_url)
 
 with recipes_tab:
     # display what goest in recipes_tab
     st.write("Recipe Ideas!")
+    
 
 with restaurants_tab:
     # display what goest in recipes_tab
