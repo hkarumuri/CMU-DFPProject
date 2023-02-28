@@ -4,6 +4,8 @@ import requests
 from bs4 import BeautifulSoup
 import food_to_restaurant as fToRest
 import webbrowser
+from PIL import Image
+from io import BytesIO
 
 
 
@@ -39,17 +41,43 @@ mood_to_food = {
 
 # MAIN PAGE
 
-mood_text = st.text_input("How are you feeling today?", max_chars=100, placeholder="I'm Happy!")
-button_clicked = st.button("Button")
+mood_text = st.text_input("How are you feeling today?",key="text", max_chars=100, placeholder="I'm Happy!")
 
-# or radio?
-# with left:  
-mood = st.radio('How are you feeling today?', options=list(mood_to_food.keys()), horizontal=True)
+submit = st.button("Submit")
+
+
+if(submit):
+    user_input = mood_text.title()
+    st.write("Here are food options for your moods!")
+
 
 # provide options to either select foods, recipes, restaurants
 foods_tab, recipes_tab, restaurants_tab = st.tabs(["Food", "Recipe", "Restaurant"])
 
+# mood_text will be later used as an user input to search!
 food_item = "pizza"
+
+
+# Sample code that displays main image of the website if there is any
+# Set the URL of the webpage you want to scrape
+url = "https://www.icecream.com/"
+
+# Send a GET request to the webpage and get the HTML content
+response = requests.get(url)
+html_content = response.content
+
+# Parse the HTML content using BeautifulSoup
+soup = BeautifulSoup(html_content, 'html.parser')
+
+# Find the first image on the webpage and display it in Streamlit
+main_image = soup.find('meta', property='og:image')
+if main_image is not None:
+    src = main_image['content']
+    if src.startswith('http'):
+        response = requests.get(src)
+        img = Image.open(BytesIO(response.content))
+        st.image(img, caption='Website Image')
+
 
 with recipes_tab:
     # display what goest in recipes_tab
@@ -58,17 +86,17 @@ with recipes_tab:
 with restaurants_tab:
     # display what goest in recipes_tab
     st.write("Where to get the food!")
-    results = fToRest.google_search("pizza")[0]
-    url = results['link']
-    st.write("*Here's an article that can help you find a place to get this food!*")
-    st.write(results['title'])
-    if st.button('Open article'):
-        webbrowser.open_new_tab(url)
     
-# place a box for the user to type in
+    # Disply results when user submits the input
+    if submit:
+        st.write(mood_text)
+        results = fToRest.google_search("pizza")[0]
+        url = results['link']
+        st.write("*Here's an article that can help you find a place to get this food!*")
+        st.write(results['title'])
+        if st.button('Open article'):
+            webbrowser.open_new_tab(url)
 
-# Get the corresponding food item from the mood
-food = mood_to_food[mood]
 
 
 
