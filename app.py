@@ -48,18 +48,9 @@ submit = st.button("Submit")
 
 if(submit):
     user_input = mood_text.title()
+    st.write("#### You are feeling _insert emotion here_")
     st.write("Here are food options for your moods!")
 
-
-# provide options to either select foods, recipes, restaurants
-foods_tab, recipes_tab, restaurants_tab = st.tabs(["Food", "Recipe", "Restaurant"])
-
-# mood_text will be later used as an user input to search!
-food_item = "pizza"
-
-# Sample code that displays main image of the website if there is any
-# Set the URL of the webpage you want to scrape
-url = "https://www.icecream.com/"
 
 # Send a GET request to the webpage and get the HTML content
 def get_main_img(url):
@@ -79,31 +70,47 @@ def get_main_img(url):
             return img
             # st.image(img, caption='Website Image')
 
-with foods_tab:
-    st.image(get_main_img(url), width=200, caption=url)
-    new_url = "https://www.aheadofthyme.com/40-best-pasta-recipes/"
-    st.image(get_main_img(new_url), width=200, caption=new_url)
+if(submit):
+    # provide options to either select foods, recipes, restaurants
+    foods_tab, recipes_tab, restaurants_tab = st.tabs(["Food", "Recipe", "Restaurant"])
 
-with recipes_tab:
-    # display what goest in recipes_tab
-    st.write("Recipe Ideas!")
-    
+    # mood_text will be later used as an user input to search!
+    food_item = "pizza"
 
-with restaurants_tab:
-    # display what goest in recipes_tab
-    st.write("Where to get the food!")
-    
-    # Disply results when user submits the input
-    if submit:
-        st.write(mood_text)
-        results = fToRest.google_search("pizza")[0]
-        url = results['link']
-        st.write("*Here's an article that can help you find a place to get this food!*")
-        st.write(results['title'])
-        if st.button('Open article'):
-            webbrowser.open_new_tab(url)
+    # Sample code that displays main image of the website if there is any
+    # Set the URL of the webpage you want to scrape
+    url = "https://www.icecream.com/"
 
 
+    with foods_tab:
+        st.write(f"You want....**{food_item}**!")
+
+
+        # st.image(get_main_img(url), width=200, caption=url)
+        new_url = "https://www.aheadofthyme.com/40-best-pasta-recipes/"
+        st.image(get_main_img(new_url), width=200, caption=new_url)
+
+    with recipes_tab:
+        # display what goest in recipes_tab
+        st.write("Recipe Ideas!")
+        
+
+    with restaurants_tab:
+        # display what goest in recipes_tab
+        st.write("Where to get the food!")
+        
+        # Disply results when user submits the input
+        if submit:
+            st.write(mood_text)
+            results = fToRest.google_search("pizza")[0]
+            url = results['link']
+            st.write("*Here's an article that can help you find a place to get this food!*")
+            st.write(results['title'])
+            if st.button('Open article'):
+                webbrowser.open_new_tab(url)
+            st.image(get_main_img(url), width=200, caption=url)
+else:
+    st.write("### Ready to find deliciousness! :yum:")
 
 
 
