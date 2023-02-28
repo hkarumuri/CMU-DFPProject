@@ -2,7 +2,6 @@ import pandas as pd
 
 def get_food_list(userMood):  # Will return a mood_to_food dictionary with top 4 food items per emotion
     mood_food = pd.read_csv('mood_to_food_final.csv')
-    # mood_food = pd.read_csv('/Users/scottmcdonald/Programs/DFP/FoodSwings/mood_to_food_final.csv')
     mfl = mood_food.values.tolist() # convert to list of lists
     mfd = {}  # dictionary with mood as key and list of top 4 foods as values
     for line in mfl: #create dictionary and adjust some data points
