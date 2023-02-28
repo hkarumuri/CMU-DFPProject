@@ -18,7 +18,6 @@ def get_results(query):
     
     query = urllib.parse.quote_plus(query)
     response = get_source("https://www.google.co.uk/search?q=" + query)
-    
     return response
 
 def parse_results(response):

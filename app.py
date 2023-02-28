@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
+import food_to_restaurant as fToRest
+import webbrowser
+
 
 
 # layout of the app 
@@ -9,7 +12,7 @@ st.set_page_config(
     page_title="Food Swings",
     page_icon=":fork_and_knife:",
     # layout="wide"
-    )
+)
 
 st.title('Food Swings')
 # left, right = st.columns(2)  
@@ -46,10 +49,7 @@ mood = st.radio('How are you feeling today?', options=list(mood_to_food.keys()),
 # provide options to either select foods, recipes, restaurants
 foods_tab, recipes_tab, restaurants_tab = st.tabs(["Food", "Recipe", "Restaurant"])
 
-
-with foods_tab:
-    # display what to put in this tab
-    st.write("Food Ideas!")
+food_item = "pizza"
 
 with recipes_tab:
     # display what goest in recipes_tab
@@ -58,6 +58,12 @@ with recipes_tab:
 with restaurants_tab:
     # display what goest in recipes_tab
     st.write("Where to get the food!")
+    results = fToRest.google_search("pizza")[0]
+    url = results['link']
+    st.write("*Here's an article that can help you find a place to get this food!*")
+    st.write(results['title'])
+    if st.button('Open article'):
+        webbrowser.open_new_tab(url)
     
 # place a box for the user to type in
 
