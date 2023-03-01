@@ -10,10 +10,6 @@ import random
 import mood_to_food as moodToF
 import food_to_restaurant as fToRest
 
-#temp package
-
-
-
 
 # layout of the app 
 st.set_page_config(
@@ -32,15 +28,9 @@ st.sidebar.markdown("DFP C3 Group2")
 
 
 # Define the mood to food mapping
-# mood_to_food = {
-#     'Happy': 'pizza',
-#     'Sad': 'ice cream',
-#     'Stressed': 'chocolate',
-#     'Bored': 'chip',
-#     'lazy': 'burger',
-#     'Hangry': 'mac and cheese'
-# }
 mood_to_food = moodToF.get_all_food_list()
+
+#identify mood
 userMood = random.choice(list(mood_to_food.keys()))
 
 # MAIN PAGE
