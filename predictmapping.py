@@ -12,8 +12,8 @@ with open('model.pkl', 'rb') as f:
     pipe_lr_loaded = pickle.load(f)
 
 # Use the loaded model to make predictions
-text = ["I am bored"]
-emotion = pipe_lr_loaded.predict(text)
+# text = ["I am bored"]
+# emotion = pipe_lr_loaded.predict(text)
 #print(y_pred)
 
 bored_list = ['bore', 'bored', 'boredom']
@@ -24,10 +24,8 @@ stress_list = ['stress', 'stressing', 'stressed']
 
     
 
-def mapping(emotion, text):
-    
-     
-    
+def mapping(text):
+    emotion = pipe_lr_loaded.predict(text)
     if emotion == 'joy':
         if any(i in text for i in bored_list):
             emotion = 'lazy'
@@ -58,7 +56,7 @@ def mapping(emotion, text):
         
     
 
-emote = mapping(emotion, text)
+# emote = mapping(emotion, text)
         
 #print(x,y,a,b, c,d)
 
