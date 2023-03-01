@@ -55,7 +55,6 @@ userMood = random.choice(list(mood_to_food.keys()))  #TODO temp line of code, de
 # MAIN PAGE 
 # -- User can input text about how they are feeling
 mood_text = st.text_input("How are you feeling today?",key="text", max_chars=100, placeholder="I'm Happy!")
-location_text = st.text_input("Where are you located?",key="loctext", max_chars=100, placeholder="Pittsburgh, PA")
 submit = st.button("Submit")
 
 if(submit):
