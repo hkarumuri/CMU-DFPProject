@@ -9,7 +9,7 @@ import random
 
 import mood_to_food as moodToF
 import food_to_restaurant as fToRest
-
+from predictmapping import mapping
 ## - Helper function to find the first image in a webpage and return the image -
 # Send a GET request to the webpage and get the HTML content
 def get_main_img(url):
@@ -57,10 +57,9 @@ mood_text = st.text_input("How are you feeling today?",key="text", max_chars=100
 submit = st.button("Submit")
 
 if(submit):
-    
-    # TODO impement userMood integration here
-    # userMood = somefunction(mood_text)
-    food_list = moodToF.get_food_list(userMood)
+    # impement userMood integration here
+    userMood = mapping([mood_text])
+    food_list = moodToF.get_food_list(userMood.title())
     food_item = random.choice(food_list)
 
     #present how user is feeing
