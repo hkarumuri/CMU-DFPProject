@@ -10,6 +10,7 @@ import random
 import mood_to_food as moodToF
 import food_to_restaurant as fToRest
 from predictmapping import mapping
+import food_to_recipe
 ## - Helper function to find the first image in a webpage and return the image -
 # Send a GET request to the webpage and get the HTML content
 def get_main_img(url):
@@ -54,6 +55,7 @@ userMood = random.choice(list(mood_to_food.keys()))  #TODO temp line of code, de
 # MAIN PAGE 
 # -- User can input text about how they are feeling
 mood_text = st.text_input("How are you feeling today?",key="text", max_chars=100, placeholder="I'm Happy!")
+location_text = st.text_input("Where are you located?",key="loctext", max_chars=100, placeholder="Pittsburgh, PA")
 submit = st.button("Submit")
 
 if(submit):
@@ -71,7 +73,8 @@ if(submit):
 
     #tab to show food reccomendation
     with foods_tab:
-        st.write(f"### You want....**{food_item.title()}**!")
+        st.write(f"### The vibes have spoken:crystal_ball:........")
+        st.write(f"you're feeling **{food_item.title()}**!")
         # get an image of the food from flikr     
         try: 
             food_pic = get_main_img("https://www.flickr.com/search/?text=food%20" + food_item.replace(" ", "%20"))
@@ -82,25 +85,21 @@ if(submit):
     #tab to show a recipe for the food
     with recipes_tab:
         # display what goest in recipes_tab
-        st.write("Recipe Ideas!")
+        st.write("*Here's a recipe you can use!:fork_and_knife:*")
+        st.write(food_to_recipe.get_results(food_item))
         
     #tab to show where the user can buy the food
     with restaurants_tab:
         st.write("Where to get the food!")
         
         # Disply results when user submits the input
-        if submit:
-            results = fToRest.google_search(food_item)[0]
-            url = results['link']
-            st.write("*Here's an article that can help you find a place to get this food!*")
-            st.write(results['title'])
-            st.write(results["link"])
-            # if st.button('Open article'):  #TODO not working
-                # webbrowser.open_new_tab(url)
-            try:
-                st.image(get_main_img(url), width=200, caption=url) #TODO this line can get hung up (for example, if trying to get something from pizza hut). Is there a way to time out of a python function?
-            except:
-                pass #print("restaurant image not found")
+        results = fToRest.google_search(food_item + " restaurant" + " near me")[0]
+        url = results['link']
+        st.write("*Here's an article that can help you find a place to get this food!*")
+        st.write(results['title'])
+        st.write(results["link"])
+        # if st.button('Open article'):  #TODO not working
+            # webbrowser.open_new_tab(url)
 else:
     st.write("### Ready to find deliciousness! :yum:")
 

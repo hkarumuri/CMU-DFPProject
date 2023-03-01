@@ -26,33 +26,34 @@ stress_list = ['stress', 'stressing', 'stressed']
 
 def mapping(text):
     emotion = pipe_lr_loaded.predict(text)
-    if emotion == 'joy':
+    return_emotion = ""
+    if emotion[0] == 'joy':
         if any(i in text for i in bored_list):
-            emotion = 'Lazy'
+            return_emotion = 'Lazy'
         elif any(i in text for i in excited_list):
-            emotion = 'excited'
+            return_emotion = 'excited'
         elif any(i in text for i in stress_list):
-                emotion = 'Stressed'
+                return_emotion = 'Stressed'
         else:
-            emotion = 'Happy'
+            return_emotion = 'Happy'
             
-    if emotion == 'sadness':
+    if emotion[0] == 'sadness':
         if any(i in text for i in bored_list):
-            emotion = 'Bored'
+            return_emotion = 'Bored'
         else:
-            emotion = 'Sad'
+            return_emotion = 'Sad'
         
-    if emotion =='anger':
-        emotion == 'Hangry'
+    if emotion[0] =='anger':
+        return_emotion == 'Hangry'
     
-    if emotion == 'neutral':
-        if any(i in text for i in lazy_list):
-            emotion = 'Lazy'
-    if emotion == 'fear':
-        emotion = 'Stressed'
+    if emotion[0] == 'neutral':
+        #if any(i in text for i in lazy_list):
+        return_emotion = 'Lazy'
+    if emotion[0] == 'fear':
+        return_emotion = 'Stressed'
         
     
-    return emotion
+    return return_emotion
         
     
 
