@@ -36,7 +36,6 @@ def parse_results(response):
         item = {
             'title': result.find(css_identifier_title, first=True).text,
             'link': result.find(css_identifier_link, first=True).attrs['href'],
-            'text': result.find(css_identifier_text, first=True).text
         }
         
         output.append(item)
