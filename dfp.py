@@ -24,7 +24,7 @@ from sklearn.metrics import accuracy_score,classification_report,confusion_matri
 from sklearn.pipeline import Pipeline
 #from sklearn.externals import joblib
 import pickle
-
+import joblib
 
 
 df = pd.read_csv("emotion_dataset_raw.csv")
@@ -72,9 +72,10 @@ pipe_lr.fit(x_train,y_train)
 # print(result)
 # =============================================================================
 # Save the trained model to a file
-with open('model.pkl', 'wb') as f:
-    pickle.dump(pipe_lr, f)
+# with open('model.pkl', 'wb') as f:
+#     pickle.dump(pipe_lr, f)
 
+joblib.dump(pipe_lr , 'model_jlib')
 
 
 

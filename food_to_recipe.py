@@ -19,9 +19,8 @@ def get_recipe(query):
 
 
 if __name__ == "__main__":
-    food_name = input("What food do you want to search nearby?\n")
-    results = get_recipe(food_name + " near me")
     pp = pprint.PrettyPrinter(indent=4)
     food_name = "pizza"
     results = get_recipe(food_name)
     pp.pprint(results)
+

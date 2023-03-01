@@ -48,6 +48,10 @@ def get_all_food_list():  # Will return a mood_to_food dictionary with top 4 foo
         foods = foods[:4]
         mfd[title] = foods
     mfd['Lazy'] = mfd['Laziness']
+    del mfd["Depression"]
+    del mfd["Laziness"]
+    del mfd["Weather"]
+    del mfd["Tv"]
     return mfd
 
 if __name__ == "__main__":
