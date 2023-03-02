@@ -12,7 +12,7 @@ def get_food_list(userMood):
 
     for line in mfl:
         #  Create and capitalize mood keys
-        mood = line[0].replace("stress", "stressed").replace("hunger", "hangry").\
+        mood = line[0].replace("stress", "stressed").replace("hunger", "angry").\
             replace("happiness", "happy").capitalize()
 
         #  Clean up food items
@@ -37,7 +37,7 @@ def get_all_food_list():  # Will return a mood_to_food dictionary with top 4 foo
     mfl = mood_food.values.tolist() # convert to list of lists
     mfd = {}  # dictionary with mood as key and list of top 4 foods as values
     for line in mfl: #create dictionary and adjust some data points
-        title = line[0].replace("stress", "stressed").replace("hunger", "hangry").\
+        title = line[0].replace("stress", "stressed").replace("hunger", "angry").\
             replace("happiness", "happy").capitalize()
         foods = line[1].replace("cooky", "cookies").\
             replace('[', '').replace("'", "").replace(']', "")\
@@ -55,7 +55,7 @@ def get_all_food_list():  # Will return a mood_to_food dictionary with top 4 foo
     return mfd
 
 if __name__ == "__main__":
-    foodOptions = get_food_list("Sad")
+    foodOptions = get_food_list("Angry")
     pp = pprint.PrettyPrinter(indent=4)
     print(foodOptions)
     allFoodOptions = get_all_food_list()

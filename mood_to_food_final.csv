@@ -9,3 +9,4 @@ lazy,['burger']
 weather,"['chocolate', 'pasta', 'soup', 'chip', 'popcorn', 'cooky', 'mac-n-cheese', 'brownie', 'french fries']"
 happiness,"['pizza', 'ice cream', 'cooky', 'burger', 'fast food', 'sub', 'chex-mix', 'wegmans cookies', 'cheez-its', 'nutella', 'coffee', 'fruit', 'chicken noodle soup', 'cake', 'pop', 'and milkshakes', 'chocolate', 'indian and korean food', 'chip', 'rice', 'chicken curry', 'mac n cheese', 'lasagna']"
 tv,"['dark chocolate', 'terra chips', ""reese's cups(dark chocolate)"", 'and bread/crackers with cottage cheese']"
+anger,"['Pizza', 'mashed potatoes', 'spaghetti', 'ice cream', 'chips', 'candy','chocolate','Mac and cheese', 'chocolate', 'pasta','Tomato soup', 'Fritos', 'Meatball sub', 'Dr. Pepper','popcorn', 'fries','pretzels', 'fruit snacks', 'deli sandwhich']"

@@ -85,7 +85,12 @@ if(submit):
     with recipes_tab:
         # display what goest in recipes_tab
         st.write("*Here's a recipe you can use!:fork_and_knife:*")
-        st.write(food_to_recipe.get_results(food_item))
+        (instr, imgURL) = food_to_recipe.get_results(food_item)
+        try: 
+            st.image(imgURL)
+        except:
+            print("image not found")
+        st.write(instr)
         
     #tab to show where the user can buy the food
     with restaurants_tab:

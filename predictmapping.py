@@ -44,19 +44,18 @@ def mapping(text):
             return_emotion = 'Sad'
         
     if emotion[0] =='anger':
-        return_emotion == 'Hangry'
+        return_emotion = 'Anger'
     
     if emotion[0] == 'neutral':
-        #if any(i in text for i in lazy_list):
         return_emotion = 'Lazy'
     if emotion[0] == 'fear':
         return_emotion = 'Stressed'
-        
     
     return return_emotion
         
     
-
+if __name__ == "__main__":
+    mapping(["anger"])
 # emote = mapping(emotion, text)
         
 #print(x,y,a,b, c,d)

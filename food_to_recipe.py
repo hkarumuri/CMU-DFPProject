@@ -26,6 +26,12 @@ def get_results(query):
     data = response.json()
     #print(data["results"][0]["analyzedInstructions"][0]["steps"]) 
     recipe_str = ""
+    heading = "### " + data["results"][0]['title']
+    link =  "Click for full recipe page: " + data["results"][0]['sourceUrl']
+    imgURL = data["results"][0]['image']
+
+
+    ingredientsSet = set()
     i = 1
     for instruction in data["results"][0]["analyzedInstructions"]:
         if instruction["name"] != "":
@@ -34,8 +40,15 @@ def get_results(query):
         for step in instruction["steps"]:
             recipe_str += (str(i) + ". " + step['step'] + "\n")
             i += 1
-    print(recipe_str)
-    return recipe_str
+            for ing in step['ingredients']:
+                ingredientsSet.add(ing['name'])
+
+    ing_str = "You will need these ingredients:\n\n"
+    for ing in ingredientsSet:
+        ing_str += "- " + ing + "\n"
+
+    recipe_str = heading + "\n" + ing_str + "\n" + recipe_str + "\n" + link
+    return recipe_str, imgURL
 
 
 # def get_results(query):
