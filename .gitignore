@@ -3,3 +3,4 @@ secrets.json
 .ipynb_checkpoints
 env/
 __pycache__
+get-pip.py
