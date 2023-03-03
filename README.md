@@ -1,12 +1,18 @@
 # CMU-DFPProject
 
+This is a final project for Data Focused Python (95-888) at Carnegie Mellon Univeristy. This course is taught by John Ostlund.
+
+Contributors:
+- Harish  Karumuri 	
+- Dhruvi Khankoje 
+- Jiyoon Jung	
+- Scott McDonald	
+- Saloni Priyani	
+
+
 ## Dependencies
 
-Make sure secrets.json is addded to the main directory. For example, this can be run directly from the terminal as 
-
-```
-$ python3 main.py
-```
+Make sure secrets.json is addded to the main directory.
 
  This should be formatted as a JSON file, with an API Key from Spoonacular, which can be obtained here: https://spoonacular.com/food-api. The JSON should be formatted as below.
 
@@ -20,7 +26,13 @@ $ python3 main.py
 
 ## How to use
 
-In order to to run this project, run the `main.py` file. This will install pip if it is not yet installed, create a virtual environment, install all dependencies from the `requirements.txt` file, and then finally open the streamlit app. *This may take a few minutes.*
+In order to to run this project, run the `main.py` file. For example, this can be run directly from the terminal as 
+
+```
+$ python3 main.py
+```
+
+This will install pip if it is not yet installed, create a virtual environment, install all dependencies from the `requirements.txt` file, and then finally open the streamlit app. *This may take a few minutes.*
 
 Your preferred browser should open the streamlit application automatically, but in the event it does not, go to http://localhost:8501
 
@@ -78,5 +90,5 @@ Scrape first result google given a query.
 
 ## Citations
 
-- For the Mood Detection ML model: https://youtu.be/tLsg01D6k6g
+- For the Mood Detection ML model: https://github.com/Jcharis/end2end-nlp-project/
 - For processing mood to food reccomendations: https://github.com/priyanshrastogi/mood-based-food-recommender
