@@ -2,7 +2,13 @@
 
 ## Dependencies
 
-Make sure secrets.json is addded to the main directory. This should be formatted as a JSON file, with an API Key from Spoonacular, which can be obtained here: <insert link here>. The JSON should be formatted as below.
+Make sure secrets.json is addded to the main directory. For example, this can be run directly from the terminal as 
+
+```
+$ python3 main.py
+```
+
+ This should be formatted as a JSON file, with an API Key from Spoonacular, which can be obtained here: https://spoonacular.com/food-api. The JSON should be formatted as below.
 
 ```secrets.json
 {
