@@ -55,7 +55,7 @@ We used the following sources of data:
 4. Google Search: https://www.google.com/ -- A query was provided as "FOOD_TYPE_HERE restaurants near me" and the first result was provided to the user.
 5. Food preference survey data: https://github.com/priyanshrastogi/mood-based-food-recommender/blob/master/food_choices.csv -- survery data that was parsed
 
-### Hihg level architecture
+### High level architecture
 
 raw mood text -> mood -> food --> recipe and restaurants
 
